@@ -47,5 +47,12 @@ class UsersTableSeeder extends Seeder
         $user->email = "442342634@qq.com";
         $user->avatar = "http://larabbs.test/uploads/images/avatars/201908/18/1_1566134047_KsG5dJzviw.jpg";
         $user->save();
+
+        // 初始化用户角色， 将 1 号用户指派为【站长】
+        $user->assignRole('Founder');
+
+        // 将 2 号用户指派为【管理员】
+        $user = User::find(2);
+        $user->assignRole('Maintainer');
     }
 }
